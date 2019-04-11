@@ -1,3 +1,4 @@
+import org.jfree.chart.ChartFrame;
 import pl.sensors.dao.DataSeriesDao;
 import pl.sensors.dao.model.DataSeriesModel;
 import pl.sensors.dao.model.DataSeriesGroup;
@@ -18,10 +19,10 @@ public class XYLineChartJFrame extends JFrame {
     private DataSeriesDao dataSeriesDao = new DataSeriesDao();
 
     private JComboBox dataSeriesComboBox;
+    private ChartFrame chartFrame;
 
     private List<DataSeriesModel> dataSeriesModelList = new ArrayList<>();
     private List<DataSeriesModel> filteredBySensorGroup = new ArrayList<>();
-
 
     private DataSeriesChartService chartService = new DataSeriesChartService();
     private DataSeriesChartFrameModel dataSeriesChartFrameModel;
@@ -43,6 +44,7 @@ public class XYLineChartJFrame extends JFrame {
         jPanel.add(dataSeriesGroupComboBox);
 
         dataSeriesChartFrameModel = chartService.createChart();
+        chartFrame = chartService.createChartFrame();
 
         DefaultComboBoxModel dataSeriesGroupComboBoxModel = new DefaultComboBoxModel();
 
@@ -103,6 +105,7 @@ public class XYLineChartJFrame extends JFrame {
 //                chartService.createChart(dataSeriesModelList);
                 dataSeriesChartFrameModel.getChartFrame().setVisible(true);
                 chartService.addTimeSeries(dataSeriesChartFrameModel, dataSeriesModelList);
+//                chartService.addToTimeSeriesCollection();
             }
         });
 

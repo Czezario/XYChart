@@ -22,7 +22,7 @@ public class XYLineChart_AWT extends ApplicationFrame {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
+        @Override
             public void run() {
                 new XYLineChartJFrame() {
                 };
@@ -75,6 +75,7 @@ public class XYLineChart_AWT extends ApplicationFrame {
     }
 
 
+
     private static XYSeriesCollection getXySeriesCollection(Connection connect) throws SQLException {
 
 
@@ -109,8 +110,6 @@ public class XYLineChart_AWT extends ApplicationFrame {
 //     System.out.println(listaCzujników2);
 //
 // }
-
-
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(CO2);
         //dataset.addSeries(CO22);
@@ -132,5 +131,4 @@ public class XYLineChart_AWT extends ApplicationFrame {
 
 
     }
-
 }
